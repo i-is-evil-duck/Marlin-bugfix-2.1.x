@@ -75,11 +75,11 @@
 
 
 // Endstop pins
-//  #define I_MIN_PIN     PG11  // Z2-STOP
-//  #define J_MIN_PIN     PG12  // E0DET
-//  #define K_MIN_PIN     PG13  // E1DET
-//  #define U_MIN_PIN     PG14  // E2DET
-//  #define V_MIN_PIN     PG15  // E3DET
+ #define I_MIN_PIN     PG11  // Z2-STOP
+ #define J_MIN_PIN     PG12  // E0DET
+ #define K_MIN_PIN     PG13  // E1DET
+ #define U_MIN_PIN     PG14  // E2DET
+ #define V_MIN_PIN     PG15  // E3DET
 
 
 
@@ -219,10 +219,10 @@
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 #define I_DRIVER_TYPE  A4988   // MOTOR3 (E0 port)
-// #define J_DRIVER_TYPE  A4988   // MOTOR4 (E1 port)
-// #define K_DRIVER_TYPE  A4988   // MOTOR5 (E2 port)
-// #define U_DRIVER_TYPE  A4988   // MOTOR6 (E3 port)
-// #define V_DRIVER_TYPE  A4988   // MOTOR7 (E4 port)
+#define J_DRIVER_TYPE  A4988   // MOTOR4 (E1 port)
+#define K_DRIVER_TYPE  A4988   // MOTOR5 (E2 port)
+#define U_DRIVER_TYPE  A4988   // MOTOR6 (E3 port)
+#define V_DRIVER_TYPE  A4988   // MOTOR7 (E4 port)
 //#define W_DRIVER_TYPE  A4988
 //#define E0_DRIVER_TYPE A4988
 //#define E1_DRIVER_TYPE A4988
