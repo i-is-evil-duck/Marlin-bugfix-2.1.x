@@ -73,17 +73,54 @@
   #define MOTHERBOARD BOARD_BTT_OCTOPUS_PRO_V1_1
 #endif
 
-// E4 for dual axis auto-assignment
-#define E4_STEP_PIN   PG4   // MOTOR 3
-#define E4_DIR_PIN    PC1
-#define E4_ENABLE_PIN PA0
 
 // Endstop pins
-#define I_MIN_PIN     PG11  // Z2-STOP
-#define J_MIN_PIN     PG12  // E0DET
-#define K_MIN_PIN     PG13  // E1DET
-#define U_MIN_PIN     PG14  // E2DET
-#define V_MIN_PIN     PG15  // E3DET
+//  #define I_MIN_PIN     PG11  // Z2-STOP
+//  #define J_MIN_PIN     PG12  // E0DET
+//  #define K_MIN_PIN     PG13  // E1DET
+//  #define U_MIN_PIN     PG14  // E2DET
+//  #define V_MIN_PIN     PG15  // E3DET
+
+
+
+// #define I_ENABLE_PIN PA0
+// #define J_ENABLE_PIN PG2
+// #define K_ENABLE_PIN PF1
+// #define U_ENABLE_PIN PD4
+// #define V_ENABLE_PIN PE0
+
+
+
+// E4 for dual axis auto-assignment
+#define I_STEP_PIN   PG4   // MOTOR 3
+#define I_DIR_PIN    PC1
+#define I_ENABLE_PIN PA0
+
+// Endstop pins
+// #define I_MIN_PIN     PG11  // Z2-STOP
+// #define J_MIN_PIN     PG12  // E0DET
+// #define K_MIN_PIN     PG13  // E1DET
+// #define U_MIN_PIN     PG14  // E2DET
+//#define V_MIN_PIN     PG15  // E3DET
+
+// #define I_ENABLE_PIN PA0
+// #define J_ENABLE_PIN PG2
+// #define K_ENABLE_PIN PF1
+// #define U_ENABLE_PIN PD4
+// #define V_ENABLE_PIN PE0
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // @section serial
 
@@ -182,10 +219,10 @@
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 #define I_DRIVER_TYPE  A4988   // MOTOR3 (E0 port)
-#define J_DRIVER_TYPE  A4988   // MOTOR4 (E1 port)
-#define K_DRIVER_TYPE  A4988   // MOTOR5 (E2 port)
-#define U_DRIVER_TYPE  A4988   // MOTOR6 (E3 port)
-#define V_DRIVER_TYPE  A4988   // MOTOR7 (E4 port)
+// #define J_DRIVER_TYPE  A4988   // MOTOR4 (E1 port)
+// #define K_DRIVER_TYPE  A4988   // MOTOR5 (E2 port)
+// #define U_DRIVER_TYPE  A4988   // MOTOR6 (E3 port)
+// #define V_DRIVER_TYPE  A4988   // MOTOR7 (E4 port)
 //#define W_DRIVER_TYPE  A4988
 //#define E0_DRIVER_TYPE A4988
 //#define E1_DRIVER_TYPE A4988
