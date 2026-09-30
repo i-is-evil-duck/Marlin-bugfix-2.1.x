@@ -74,13 +74,11 @@
 #endif
 
 
-// Endstop pins
- #define I_MIN_PIN     PG11  // Z2-STOP
- #define J_MIN_PIN     PG12  // E0DET
- #define K_MIN_PIN     PG13  // E1DET
- #define U_MIN_PIN     PG14  // E2DET
- #define V_MIN_PIN     PG15  // E3DET
-
+//  #define I_MIN_PIN     PG11  // Z2-STOP
+//  #define J_MIN_PIN     PG12  // E0DET
+//  #define K_MIN_PIN     PG13  // E1DET
+//  #define U_MIN_PIN     PG14  // E2DET
+//  #define V_MIN_PIN     PG15  // E3DET
 
 
 // #define I_ENABLE_PIN PA0
@@ -92,9 +90,41 @@
 
 
 // E4 for dual axis auto-assignment
+
+/**
+ * Robot arm joints on MOTOR 3..7.
+ * Each axis is a TMC2209 in UART mode; the DIAG output of the driver is
+ * wired to the matching "*DET / *-STOP" header for StallGuard (sensorless) homing.
+ */
 #define I_STEP_PIN   PG4   // MOTOR 3
 #define I_DIR_PIN    PC1
 #define I_ENABLE_PIN PA0
+#define I_MIN_PIN    PG11  // Z2-STOP  <- I driver DIAG
+#define I_SERIAL_TX_PIN PC7
+
+#define J_STEP_PIN   PF9   // MOTOR 4
+#define J_DIR_PIN    PF10
+#define J_ENABLE_PIN PG2
+#define J_MIN_PIN    PG12  // E0DET    <- J driver DIAG
+#define J_SERIAL_TX_PIN PF2
+
+#define K_STEP_PIN   PC13  // MOTOR 5
+#define K_DIR_PIN    PF0
+#define K_ENABLE_PIN PF1
+#define K_MIN_PIN    PG13  // E1DET    <- K driver DIAG
+#define K_SERIAL_TX_PIN PE4
+
+#define U_STEP_PIN   PE2   // MOTOR 6
+#define U_DIR_PIN    PE3
+#define U_ENABLE_PIN PD4
+#define U_MIN_PIN    PG14  // E2DET    <- U driver DIAG
+#define U_SERIAL_TX_PIN PE1
+
+#define V_STEP_PIN   PE6   // MOTOR 7
+#define V_DIR_PIN    PA14
+#define V_ENABLE_PIN PE0
+#define V_MIN_PIN    PG15  // E3DET    <- V driver DIAG
+#define V_SERIAL_TX_PIN PD3
 
 // Endstop pins
 // #define I_MIN_PIN     PG11  // Z2-STOP
@@ -210,7 +240,7 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC2240', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE  A4988
+#define X_DRIVER_TYPE  TMC2209
 #define Y_DRIVER_TYPE  A4988
 #define Z_DRIVER_TYPE  A4988
 //#define X2_DRIVER_TYPE A4988
@@ -218,11 +248,11 @@
 //#define Z2_DRIVER_TYPE A4988
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
-#define I_DRIVER_TYPE  A4988   // MOTOR3 (E0 port)
-#define J_DRIVER_TYPE  A4988   // MOTOR4 (E1 port)
-#define K_DRIVER_TYPE  A4988   // MOTOR5 (E2 port)
-#define U_DRIVER_TYPE  A4988   // MOTOR6 (E3 port)
-#define V_DRIVER_TYPE  A4988   // MOTOR7 (E4 port)
+#define I_DRIVER_TYPE  TMC2209 // MOTOR3 (Z2 port)
+#define J_DRIVER_TYPE  TMC2209 // MOTOR4 (E0 port)
+#define K_DRIVER_TYPE  TMC2209 // MOTOR5 (E1 port)
+#define U_DRIVER_TYPE  TMC2209 // MOTOR6 (E2 port)
+#define V_DRIVER_TYPE  TMC2209 // MOTOR7 (E3 port)
 //#define W_DRIVER_TYPE  A4988
 //#define E0_DRIVER_TYPE A4988
 //#define E1_DRIVER_TYPE A4988
@@ -270,10 +300,7 @@
   #define AXIS8_NAME 'V' // :['V', 'W']
   //#define AXIS8_ROTATES
 #endif
-#ifdef W_DRIVER_TYPE
-  #define AXIS9_NAME 'W' // :['W']
-  //#define AXIS9_ROTATES
-#endif
+
 
 // @section extruder
 

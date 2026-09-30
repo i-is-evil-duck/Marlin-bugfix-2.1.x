@@ -3172,8 +3172,8 @@
 
   #if AXIS_IS_TMC_CONFIG(I)
     #define I_CURRENT      800
-    #define I_CURRENT_HOME I_CURRENT
-    #define I_MICROSTEPS    16
+    #define I_CURRENT_HOME 600
+    #define I_MICROSTEPS     8
     #define I_RSENSE         0.11
     #define I_CHAIN_POS     -1
     //#define I_INTERPOLATE  true
@@ -3182,8 +3182,8 @@
 
   #if AXIS_IS_TMC_CONFIG(J)
     #define J_CURRENT      800
-    #define J_CURRENT_HOME J_CURRENT
-    #define J_MICROSTEPS    16
+    #define J_CURRENT_HOME 600
+    #define J_MICROSTEPS     8
     #define J_RSENSE         0.11
     #define J_CHAIN_POS     -1
     //#define J_INTERPOLATE  true
@@ -3192,8 +3192,8 @@
 
   #if AXIS_IS_TMC_CONFIG(K)
     #define K_CURRENT      800
-    #define K_CURRENT_HOME K_CURRENT
-    #define K_MICROSTEPS    16
+    #define K_CURRENT_HOME 600
+    #define K_MICROSTEPS     8
     #define K_RSENSE         0.11
     #define K_CHAIN_POS     -1
     //#define K_INTERPOLATE  true
@@ -3202,7 +3202,7 @@
 
   #if AXIS_IS_TMC_CONFIG(U)
     #define U_CURRENT      800
-    #define U_CURRENT_HOME U_CURRENT
+    #define U_CURRENT_HOME 600
     #define U_MICROSTEPS     8
     #define U_RSENSE         0.11
     #define U_CHAIN_POS     -1
@@ -3212,7 +3212,7 @@
 
   #if AXIS_IS_TMC_CONFIG(V)
     #define V_CURRENT      800
-    #define V_CURRENT_HOME V_CURRENT
+    #define V_CURRENT_HOME 600
     #define V_MICROSTEPS     8
     #define V_RSENSE         0.11
     #define V_CHAIN_POS     -1
@@ -3534,27 +3534,28 @@
    * Comment *_STALL_SENSITIVITY to disable sensorless homing for that axis.
    * @section tmc/stallguard
    */
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
+  #define SENSORLESS_HOMING // StallGuard capable drivers only
 
   #if ANY(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  8
-    #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  8
-    #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
+    //#define X_STALL_SENSITIVITY  8
+    //#define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
+    //#define Y_STALL_SENSITIVITY  8
+    //#define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
     //#define Z_STALL_SENSITIVITY  8
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     //#define Z3_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     //#define Z4_STALL_SENSITIVITY Z_STALL_SENSITIVITY
-    //#define I_STALL_SENSITIVITY  8
-    //#define J_STALL_SENSITIVITY  8
-    //#define K_STALL_SENSITIVITY  8
-    //#define U_STALL_SENSITIVITY  8
-    //#define V_STALL_SENSITIVITY  8
+    // Arm joints: 0 = never stalls, 255 = stalls on the slightest load. Tune with M914.
+    #define I_STALL_SENSITIVITY  8
+    #define J_STALL_SENSITIVITY  8
+    #define K_STALL_SENSITIVITY  8
+    #define U_STALL_SENSITIVITY  8
+    #define V_STALL_SENSITIVITY  8
     //#define W_STALL_SENSITIVITY  8
     //#define SPI_ENDSTOPS              // TMC2130, TMC2240, and TMC5160
-    //#define IMPROVE_HOMING_RELIABILITY
-    //#define SENSORLESS_STALLGUARD_DELAY   0 // (ms) Delay to allow drivers to settle
+    #define IMPROVE_HOMING_RELIABILITY
+    #define SENSORLESS_STALLGUARD_DELAY   100 // (ms) Delay to allow drivers to settle
   #endif
 
   // @section tmc/config
@@ -3580,7 +3581,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continuous reporting.
    */
-  //#define TMC_DEBUG
+  #define TMC_DEBUG
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
